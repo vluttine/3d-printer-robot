@@ -1,0 +1,907 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Jaco</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Module&nbsp;Jaco
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="Jaco-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="Jaco-module.html">Module Jaco</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Software Project course</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">Jaco API</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">Heikki Korhonen &amp; Joni Saunavaara</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring">10.6.2014</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">'''</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">ctypes</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module sockets=sockets-module.html"><a title="sockets" class="py-name" href="#" onclick="return doclink('link-0', 'sockets', 'link-0');">sockets</a></tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">json</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">time</tt> <tt class="py-keyword">import</tt> <tt class="py-name">sleep</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-string">First the API exports all the necessary the data structures</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-string">and data types from Linux based .so-files.</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-string">There are also all the necessary initiations for data structures.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-string">'''</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="POSITION_TYPE"></a><div id="POSITION_TYPE-def"><a name="L20"></a><tt class="py-lineno"> 20</tt> <a class="py-toggle" href="#" id="POSITION_TYPE-toggle" onclick="return toggle('POSITION_TYPE');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.POSITION_TYPE-class.html">POSITION_TYPE</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POSITION_TYPE-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="POSITION_TYPE-expanded"><a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">    <tt id="link-1" class="py-name" targets="Variable Jaco.ARMLATERALITY._fields_=Jaco.ARMLATERALITY-class.html#_fields_,Variable Jaco.AngularInfo._fields_=Jaco.AngularInfo-class.html#_fields_,Variable Jaco.AngularPosition._fields_=Jaco.AngularPosition-class.html#_fields_,Variable Jaco.CartesianInfo._fields_=Jaco.CartesianInfo-class.html#_fields_,Variable Jaco.CartesianPosition._fields_=Jaco.CartesianPosition-class.html#_fields_,Variable Jaco.ClientConfigurations._fields_=Jaco.ClientConfigurations-class.html#_fields_,Variable Jaco.FingerPosition._fields_=Jaco.FingerPosition-class.html#_fields_,Variable Jaco.HAND_MODE._fields_=Jaco.HAND_MODE-class.html#_fields_,Variable Jaco.JoystickCommand._fields_=Jaco.JoystickCommand-class.html#_fields_,Variable Jaco.Limitation._fields_=Jaco.Limitation-class.html#_fields_,Variable Jaco.POSITION_TYPE._fields_=Jaco.POSITION_TYPE-class.html#_fields_,Variable Jaco.SensorsInfo._fields_=Jaco.SensorsInfo-class.html#_fields_,Variable Jaco.SingularityVector._fields_=Jaco.SingularityVector-class.html#_fields_,Variable Jaco.TrajectoryFIFO._fields_=Jaco.TrajectoryFIFO-class.html#_fields_,Variable Jaco.TrajectoryPoint._fields_=Jaco.TrajectoryPoint-class.html#_fields_,Variable Jaco.UserPosition._fields_=Jaco.UserPosition-class.html#_fields_"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-1', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'NOMOVEMENT_POSITION'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'CARTESIAN_POSITION'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ANGULAR_POSITION'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'RETRACTED_POSITION'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PREDEFINED_POSITION_1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PREDEFINED_POSITION_2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PREDEFINED_POSITION_3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'CARTESIAN_VELOCITY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ANGULAR_VELOCITY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PREDEFINED_POSITION_4'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PREDEFINED_POSITION_5'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ANY_TRAJECTORY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'TIME_DELAY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"> </tt>
+<a name="POSITION_TYPE.__init__"></a><div id="POSITION_TYPE.__init__-def"><a name="L37"></a><tt class="py-lineno"> 37</tt> <a class="py-toggle" href="#" id="POSITION_TYPE.__init__-toggle" onclick="return toggle('POSITION_TYPE.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.POSITION_TYPE-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="POSITION_TYPE.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="POSITION_TYPE.__init__-expanded"><a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Variable Jaco.POSITION_TYPE.NOMOVEMENT_POSITION=Jaco.POSITION_TYPE-class.html#NOMOVEMENT_POSITION"><a title="Jaco.POSITION_TYPE.NOMOVEMENT_POSITION" class="py-name" href="#" onclick="return doclink('link-2', 'NOMOVEMENT_POSITION', 'link-2');">NOMOVEMENT_POSITION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Variable Jaco.POSITION_TYPE.CARTESIAN_POSITION=Jaco.POSITION_TYPE-class.html#CARTESIAN_POSITION"><a title="Jaco.POSITION_TYPE.CARTESIAN_POSITION" class="py-name" href="#" onclick="return doclink('link-3', 'CARTESIAN_POSITION', 'link-3');">CARTESIAN_POSITION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name" targets="Variable Jaco.POSITION_TYPE.ANGULAR_POSITION=Jaco.POSITION_TYPE-class.html#ANGULAR_POSITION"><a title="Jaco.POSITION_TYPE.ANGULAR_POSITION" class="py-name" href="#" onclick="return doclink('link-4', 'ANGULAR_POSITION', 'link-4');">ANGULAR_POSITION</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name" targets="Variable Jaco.POSITION_TYPE.CARTESIAN_VELOCITY=Jaco.POSITION_TYPE-class.html#CARTESIAN_VELOCITY"><a title="Jaco.POSITION_TYPE.CARTESIAN_VELOCITY" class="py-name" href="#" onclick="return doclink('link-5', 'CARTESIAN_VELOCITY', 'link-5');">CARTESIAN_VELOCITY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">7</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Variable Jaco.POSITION_TYPE.ANGULAR_VELOCITY=Jaco.POSITION_TYPE-class.html#ANGULAR_VELOCITY"><a title="Jaco.POSITION_TYPE.ANGULAR_VELOCITY" class="py-name" href="#" onclick="return doclink('link-6', 'ANGULAR_VELOCITY', 'link-6');">ANGULAR_VELOCITY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">8</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Variable Jaco.POSITION_TYPE.ANY_TRAJECTORY=Jaco.POSITION_TYPE-class.html#ANY_TRAJECTORY"><a title="Jaco.POSITION_TYPE.ANY_TRAJECTORY" class="py-name" href="#" onclick="return doclink('link-7', 'ANY_TRAJECTORY', 'link-7');">ANY_TRAJECTORY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">11</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Variable Jaco.POSITION_TYPE.TIME_DELAY=Jaco.POSITION_TYPE-class.html#TIME_DELAY"><a title="Jaco.POSITION_TYPE.TIME_DELAY" class="py-name" href="#" onclick="return doclink('link-8', 'TIME_DELAY', 'link-8');">TIME_DELAY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">12</tt> </tt>
+</div></div><a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"> </tt>
+<a name="HAND_MODE"></a><div id="HAND_MODE-def"><a name="L47"></a><tt class="py-lineno"> 47</tt> <a class="py-toggle" href="#" id="HAND_MODE-toggle" onclick="return toggle('HAND_MODE');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.HAND_MODE-class.html">HAND_MODE</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="HAND_MODE-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="HAND_MODE-expanded"><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line">    <tt id="link-9" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-9', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'HAND_NOMOVEMENT'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'POSITION_MODE'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'VELOCITY_MODE'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'NO_FINGER'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ONE_FINGER'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'TWO_FINGER'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'THREEFINGER'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"> </tt>
+<a name="ARMLATERALITY"></a><div id="ARMLATERALITY-def"><a name="L59"></a><tt class="py-lineno"> 59</tt> <a class="py-toggle" href="#" id="ARMLATERALITY-toggle" onclick="return toggle('ARMLATERALITY');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.ARMLATERALITY-class.html">ARMLATERALITY</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ARMLATERALITY-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ARMLATERALITY-expanded"><a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">    <tt id="link-10" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-10', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'RIGHTHAND'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'LEFTHAND'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"> </tt>
+<a name="Limitation"></a><div id="Limitation-def"><a name="L66"></a><tt class="py-lineno"> 66</tt> <a class="py-toggle" href="#" id="Limitation-toggle" onclick="return toggle('Limitation');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.Limitation-class.html">Limitation</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Limitation-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Limitation-expanded"><a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">    <tt id="link-11" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-11', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'speedParameter1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'speedParameter2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'speedParameter3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'forceParameter1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'forceParameter2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'forceParameter3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'accelerationParameter1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'accelerationParameter2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'accelerationParameter3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="Limitation.__init__"></a><div id="Limitation.__init__-def"><a name="L79"></a><tt class="py-lineno"> 79</tt> <a class="py-toggle" href="#" id="Limitation.__init__-toggle" onclick="return toggle('Limitation.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.Limitation-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Limitation.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Limitation.__init__-expanded"><a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Variable Jaco.Limitation.speedParameter1=Jaco.Limitation-class.html#speedParameter1"><a title="Jaco.Limitation.speedParameter1" class="py-name" href="#" onclick="return doclink('link-12', 'speedParameter1', 'link-12');">speedParameter1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Variable Jaco.Limitation.speedParameter2=Jaco.Limitation-class.html#speedParameter2"><a title="Jaco.Limitation.speedParameter2" class="py-name" href="#" onclick="return doclink('link-13', 'speedParameter2', 'link-13');">speedParameter2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Variable Jaco.Limitation.speedParameter3=Jaco.Limitation-class.html#speedParameter3"><a title="Jaco.Limitation.speedParameter3" class="py-name" href="#" onclick="return doclink('link-14', 'speedParameter3', 'link-14');">speedParameter3</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable Jaco.Limitation.forceParameter1=Jaco.Limitation-class.html#forceParameter1"><a title="Jaco.Limitation.forceParameter1" class="py-name" href="#" onclick="return doclink('link-15', 'forceParameter1', 'link-15');">forceParameter1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Variable Jaco.Limitation.forceParameter2=Jaco.Limitation-class.html#forceParameter2"><a title="Jaco.Limitation.forceParameter2" class="py-name" href="#" onclick="return doclink('link-16', 'forceParameter2', 'link-16');">forceParameter2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Variable Jaco.Limitation.forceParameter3=Jaco.Limitation-class.html#forceParameter3"><a title="Jaco.Limitation.forceParameter3" class="py-name" href="#" onclick="return doclink('link-17', 'forceParameter3', 'link-17');">forceParameter3</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Variable Jaco.Limitation.accelerationParameter1=Jaco.Limitation-class.html#accelerationParameter1"><a title="Jaco.Limitation.accelerationParameter1" class="py-name" href="#" onclick="return doclink('link-18', 'accelerationParameter1', 'link-18');">accelerationParameter1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Variable Jaco.Limitation.accelerationParameter2=Jaco.Limitation-class.html#accelerationParameter2"><a title="Jaco.Limitation.accelerationParameter2" class="py-name" href="#" onclick="return doclink('link-19', 'accelerationParameter2', 'link-19');">accelerationParameter2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Variable Jaco.Limitation.accelerationParameter3=Jaco.Limitation-class.html#accelerationParameter3"><a title="Jaco.Limitation.accelerationParameter3" class="py-name" href="#" onclick="return doclink('link-20', 'accelerationParameter3', 'link-20');">accelerationParameter3</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div></div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line"> </tt>
+<a name="SensorsInfo"></a><div id="SensorsInfo-def"><a name="L91"></a><tt class="py-lineno"> 91</tt> <a class="py-toggle" href="#" id="SensorsInfo-toggle" onclick="return toggle('SensorsInfo');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.SensorsInfo-class.html">SensorsInfo</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SensorsInfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SensorsInfo-expanded"><a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">    <tt id="link-21" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-21', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Voltage'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Current'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'AccerelationX'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'AccerelationY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'AccerelationZ'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp4'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp5'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ActuatorTemp6'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'FingerTemp1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'FingerTemp2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'FingerTemp3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"> </tt>
+<a name="CartesianInfo"></a><div id="CartesianInfo-def"><a name="L110"></a><tt class="py-lineno">110</tt> <a class="py-toggle" href="#" id="CartesianInfo-toggle" onclick="return toggle('CartesianInfo');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.CartesianInfo-class.html">CartesianInfo</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CartesianInfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CartesianInfo-expanded"><a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">    <tt id="link-22" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-22', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'X'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Y'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Z'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ThetaX'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ThetaY'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ThetaZ'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"> </tt>
+<a name="CartesianInfo.__init__"></a><div id="CartesianInfo.__init__-def"><a name="L120"></a><tt class="py-lineno">120</tt> <a class="py-toggle" href="#" id="CartesianInfo.__init__-toggle" onclick="return toggle('CartesianInfo.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.CartesianInfo-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CartesianInfo.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="CartesianInfo.__init__-expanded"><a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Variable Jaco.CartesianInfo.X=Jaco.CartesianInfo-class.html#X"><a title="Jaco.CartesianInfo.X" class="py-name" href="#" onclick="return doclink('link-23', 'X', 'link-23');">X</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name" targets="Variable Jaco.CartesianInfo.Y=Jaco.CartesianInfo-class.html#Y"><a title="Jaco.CartesianInfo.Y" class="py-name" href="#" onclick="return doclink('link-24', 'Y', 'link-24');">Y</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Variable Jaco.CartesianInfo.Z=Jaco.CartesianInfo-class.html#Z"><a title="Jaco.CartesianInfo.Z" class="py-name" href="#" onclick="return doclink('link-25', 'Z', 'link-25');">Z</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Variable Jaco.CartesianInfo.ThetaX=Jaco.CartesianInfo-class.html#ThetaX"><a title="Jaco.CartesianInfo.ThetaX" class="py-name" href="#" onclick="return doclink('link-26', 'ThetaX', 'link-26');">ThetaX</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Variable Jaco.CartesianInfo.ThetaY=Jaco.CartesianInfo-class.html#ThetaY"><a title="Jaco.CartesianInfo.ThetaY" class="py-name" href="#" onclick="return doclink('link-27', 'ThetaY', 'link-27');">ThetaY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-28" class="py-name" targets="Variable Jaco.CartesianInfo.ThetaZ=Jaco.CartesianInfo-class.html#ThetaZ"><a title="Jaco.CartesianInfo.ThetaZ" class="py-name" href="#" onclick="return doclink('link-28', 'ThetaZ', 'link-28');">ThetaZ</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div></div><a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"> </tt>
+<a name="AngularInfo"></a><div id="AngularInfo-def"><a name="L129"></a><tt class="py-lineno">129</tt> <a class="py-toggle" href="#" id="AngularInfo-toggle" onclick="return toggle('AngularInfo');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.AngularInfo-class.html">AngularInfo</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AngularInfo-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AngularInfo-expanded"><a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">    <tt id="link-29" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-29', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator4'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator5'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuator6'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line"> </tt>
+<a name="AngularInfo.__init__"></a><div id="AngularInfo.__init__-def"><a name="L139"></a><tt class="py-lineno">139</tt> <a class="py-toggle" href="#" id="AngularInfo.__init__-toggle" onclick="return toggle('AngularInfo.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.AngularInfo-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AngularInfo.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="AngularInfo.__init__-expanded"><a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name" targets="Variable Jaco.AngularInfo.Actuator1=Jaco.AngularInfo-class.html#Actuator1"><a title="Jaco.AngularInfo.Actuator1" class="py-name" href="#" onclick="return doclink('link-30', 'Actuator1', 'link-30');">Actuator1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name" targets="Variable Jaco.AngularInfo.Actuator2=Jaco.AngularInfo-class.html#Actuator2"><a title="Jaco.AngularInfo.Actuator2" class="py-name" href="#" onclick="return doclink('link-31', 'Actuator2', 'link-31');">Actuator2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Variable Jaco.AngularInfo.Actuator3=Jaco.AngularInfo-class.html#Actuator3"><a title="Jaco.AngularInfo.Actuator3" class="py-name" href="#" onclick="return doclink('link-32', 'Actuator3', 'link-32');">Actuator3</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Variable Jaco.AngularInfo.Actuator4=Jaco.AngularInfo-class.html#Actuator4"><a title="Jaco.AngularInfo.Actuator4" class="py-name" href="#" onclick="return doclink('link-33', 'Actuator4', 'link-33');">Actuator4</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name" targets="Variable Jaco.AngularInfo.Actuator5=Jaco.AngularInfo-class.html#Actuator5"><a title="Jaco.AngularInfo.Actuator5" class="py-name" href="#" onclick="return doclink('link-34', 'Actuator5', 'link-34');">Actuator5</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Variable Jaco.AngularInfo.Actuator6=Jaco.AngularInfo-class.html#Actuator6"><a title="Jaco.AngularInfo.Actuator6" class="py-name" href="#" onclick="return doclink('link-35', 'Actuator6', 'link-35');">Actuator6</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div></div><a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line"> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line"> </tt>
+<a name="FingerPosition"></a><div id="FingerPosition-def"><a name="L148"></a><tt class="py-lineno">148</tt> <a class="py-toggle" href="#" id="FingerPosition-toggle" onclick="return toggle('FingerPosition');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.FingerPosition-class.html">FingerPosition</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FingerPosition-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="FingerPosition-expanded"><a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">    <tt id="link-36" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-36', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Finger1'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Finger2'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Finger3'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line"> </tt>
+<a name="FingerPosition.__init__"></a><div id="FingerPosition.__init__-def"><a name="L155"></a><tt class="py-lineno">155</tt> <a class="py-toggle" href="#" id="FingerPosition.__init__-toggle" onclick="return toggle('FingerPosition.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.FingerPosition-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="FingerPosition.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="FingerPosition.__init__-expanded"><a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Variable Jaco.FingerPosition.Finger1=Jaco.FingerPosition-class.html#Finger1"><a title="Jaco.FingerPosition.Finger1" class="py-name" href="#" onclick="return doclink('link-37', 'Finger1', 'link-37');">Finger1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Variable Jaco.FingerPosition.Finger2=Jaco.FingerPosition-class.html#Finger2"><a title="Jaco.FingerPosition.Finger2" class="py-name" href="#" onclick="return doclink('link-38', 'Finger2', 'link-38');">Finger2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name"><a title="Jaco.FingerPosition.Finger2" class="py-name" href="#" onclick="return doclink('link-39', 'Finger2', 'link-38');">Finger2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div></div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"> </tt>
+<a name="CartesianPosition"></a><div id="CartesianPosition-def"><a name="L161"></a><tt class="py-lineno">161</tt> <a class="py-toggle" href="#" id="CartesianPosition-toggle" onclick="return toggle('CartesianPosition');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.CartesianPosition-class.html">CartesianPosition</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="CartesianPosition-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="CartesianPosition-expanded"><a name="L162"></a><tt class="py-lineno">162</tt>  <tt class="py-line">    <tt id="link-40" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-40', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L163"></a><tt class="py-lineno">163</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Coordinates'</tt><tt class="py-op">,</tt> <tt id="link-41" class="py-name" targets="Class Jaco.CartesianInfo=Jaco.CartesianInfo-class.html"><a title="Jaco.CartesianInfo" class="py-name" href="#" onclick="return doclink('link-41', 'CartesianInfo', 'link-41');">CartesianInfo</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L164"></a><tt class="py-lineno">164</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Fingers'</tt><tt class="py-op">,</tt> <tt id="link-42" class="py-name" targets="Class Jaco.FingerPosition=Jaco.FingerPosition-class.html"><a title="Jaco.FingerPosition" class="py-name" href="#" onclick="return doclink('link-42', 'FingerPosition', 'link-42');">FingerPosition</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L165"></a><tt class="py-lineno">165</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L166"></a><tt class="py-lineno">166</tt>  <tt class="py-line"> </tt>
+<a name="L167"></a><tt class="py-lineno">167</tt>  <tt class="py-line"> </tt>
+<a name="AngularPosition"></a><div id="AngularPosition-def"><a name="L168"></a><tt class="py-lineno">168</tt> <a class="py-toggle" href="#" id="AngularPosition-toggle" onclick="return toggle('AngularPosition');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.AngularPosition-class.html">AngularPosition</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="AngularPosition-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="AngularPosition-expanded"><a name="L169"></a><tt class="py-lineno">169</tt>  <tt class="py-line">    <tt id="link-43" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-43', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L170"></a><tt class="py-lineno">170</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuators'</tt><tt class="py-op">,</tt> <tt id="link-44" class="py-name" targets="Class Jaco.AngularInfo=Jaco.AngularInfo-class.html"><a title="Jaco.AngularInfo" class="py-name" href="#" onclick="return doclink('link-44', 'AngularInfo', 'link-44');">AngularInfo</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L171"></a><tt class="py-lineno">171</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Fingers'</tt><tt class="py-op">,</tt> <tt id="link-45" class="py-name"><a title="Jaco.FingerPosition" class="py-name" href="#" onclick="return doclink('link-45', 'FingerPosition', 'link-42');">FingerPosition</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L172"></a><tt class="py-lineno">172</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L173"></a><tt class="py-lineno">173</tt>  <tt class="py-line"> </tt>
+<a name="L174"></a><tt class="py-lineno">174</tt>  <tt class="py-line"> </tt>
+<a name="UserPosition"></a><div id="UserPosition-def"><a name="L175"></a><tt class="py-lineno">175</tt> <a class="py-toggle" href="#" id="UserPosition-toggle" onclick="return toggle('UserPosition');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.UserPosition-class.html">UserPosition</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UserPosition-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="UserPosition-expanded"><a name="L176"></a><tt class="py-lineno">176</tt>  <tt class="py-line">    <tt id="link-46" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-46', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L177"></a><tt class="py-lineno">177</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Type'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L178"></a><tt class="py-lineno">178</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Delay'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L179"></a><tt class="py-lineno">179</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'CartesianPosition'</tt><tt class="py-op">,</tt> <tt id="link-47" class="py-name"><a title="Jaco.CartesianInfo" class="py-name" href="#" onclick="return doclink('link-47', 'CartesianInfo', 'link-41');">CartesianInfo</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L180"></a><tt class="py-lineno">180</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Actuators'</tt><tt class="py-op">,</tt> <tt id="link-48" class="py-name"><a title="Jaco.AngularInfo" class="py-name" href="#" onclick="return doclink('link-48', 'AngularInfo', 'link-44');">AngularInfo</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L181"></a><tt class="py-lineno">181</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'HandMode'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L182"></a><tt class="py-lineno">182</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Fingers'</tt><tt class="py-op">,</tt> <tt id="link-49" class="py-name"><a title="Jaco.FingerPosition" class="py-name" href="#" onclick="return doclink('link-49', 'FingerPosition', 'link-42');">FingerPosition</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L183"></a><tt class="py-lineno">183</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L184"></a><tt class="py-lineno">184</tt>  <tt class="py-line"> </tt>
+<a name="UserPosition.__init__"></a><div id="UserPosition.__init__-def"><a name="L185"></a><tt class="py-lineno">185</tt> <a class="py-toggle" href="#" id="UserPosition.__init__-toggle" onclick="return toggle('UserPosition.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.UserPosition-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="UserPosition.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="UserPosition.__init__-expanded"><a name="L186"></a><tt class="py-lineno">186</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Variable Jaco.UserPosition.Type=Jaco.UserPosition-class.html#Type"><a title="Jaco.UserPosition.Type" class="py-name" href="#" onclick="return doclink('link-50', 'Type', 'link-50');">Type</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt>  <tt class="py-comment"># CARTERTESIAN_POSITION</tt> </tt>
+<a name="L187"></a><tt class="py-lineno">187</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Variable Jaco.UserPosition.HandMode=Jaco.UserPosition-class.html#HandMode"><a title="Jaco.UserPosition.HandMode" class="py-name" href="#" onclick="return doclink('link-51', 'HandMode', 'link-51');">HandMode</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt>  <tt class="py-comment"># HAND_NOMOVEMENT</tt> </tt>
+<a name="L188"></a><tt class="py-lineno">188</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name" targets="Class Jaco.CartesianPosition=Jaco.CartesianPosition-class.html,Variable Jaco.UserPosition.CartesianPosition=Jaco.UserPosition-class.html#CartesianPosition"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-52', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Method Jaco.AngularInfo.__init__()=Jaco.AngularInfo-class.html#__init__,Method Jaco.CartesianInfo.__init__()=Jaco.CartesianInfo-class.html#__init__,Method Jaco.FingerPosition.__init__()=Jaco.FingerPosition-class.html#__init__,Method Jaco.Jaco.__init__()=Jaco.Jaco-class.html#__init__,Method Jaco.Limitation.__init__()=Jaco.Limitation-class.html#__init__,Method Jaco.POSITION_TYPE.__init__()=Jaco.POSITION_TYPE-class.html#__init__,Method Jaco.TrajectoryPoint.__init__()=Jaco.TrajectoryPoint-class.html#__init__,Method Jaco.UserPosition.__init__()=Jaco.UserPosition-class.html#__init__,Method gui.model.__init__()=gui.model-class.html#__init__,Method routeplanner.Coordinate.__init__()=routeplanner.Coordinate-class.html#__init__,Method sockets.TCPsocket.__init__()=sockets.TCPsocket-class.html#__init__"><a title="Jaco.AngularInfo.__init__
+Jaco.CartesianInfo.__init__
+Jaco.FingerPosition.__init__
+Jaco.Jaco.__init__
+Jaco.Limitation.__init__
+Jaco.POSITION_TYPE.__init__
+Jaco.TrajectoryPoint.__init__
+Jaco.UserPosition.__init__
+gui.model.__init__
+routeplanner.Coordinate.__init__
+sockets.TCPsocket.__init__" class="py-name" href="#" onclick="return doclink('link-53', '__init__', 'link-53');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L189"></a><tt class="py-lineno">189</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name" targets="Variable Jaco.AngularPosition.Actuators=Jaco.AngularPosition-class.html#Actuators,Variable Jaco.UserPosition.Actuators=Jaco.UserPosition-class.html#Actuators"><a title="Jaco.AngularPosition.Actuators
+Jaco.UserPosition.Actuators" class="py-name" href="#" onclick="return doclink('link-54', 'Actuators', 'link-54');">Actuators</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="Jaco.AngularInfo.__init__
+Jaco.CartesianInfo.__init__
+Jaco.FingerPosition.__init__
+Jaco.Jaco.__init__
+Jaco.Limitation.__init__
+Jaco.POSITION_TYPE.__init__
+Jaco.TrajectoryPoint.__init__
+Jaco.UserPosition.__init__
+gui.model.__init__
+routeplanner.Coordinate.__init__
+sockets.TCPsocket.__init__" class="py-name" href="#" onclick="return doclink('link-55', '__init__', 'link-53');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L190"></a><tt class="py-lineno">190</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Variable Jaco.AngularPosition.Fingers=Jaco.AngularPosition-class.html#Fingers,Variable Jaco.CartesianPosition.Fingers=Jaco.CartesianPosition-class.html#Fingers,Variable Jaco.UserPosition.Fingers=Jaco.UserPosition-class.html#Fingers"><a title="Jaco.AngularPosition.Fingers
+Jaco.CartesianPosition.Fingers
+Jaco.UserPosition.Fingers" class="py-name" href="#" onclick="return doclink('link-56', 'Fingers', 'link-56');">Fingers</a></tt><tt class="py-op">.</tt><tt id="link-57" class="py-name"><a title="Jaco.AngularInfo.__init__
+Jaco.CartesianInfo.__init__
+Jaco.FingerPosition.__init__
+Jaco.Jaco.__init__
+Jaco.Limitation.__init__
+Jaco.POSITION_TYPE.__init__
+Jaco.TrajectoryPoint.__init__
+Jaco.UserPosition.__init__
+gui.model.__init__
+routeplanner.Coordinate.__init__
+sockets.TCPsocket.__init__" class="py-name" href="#" onclick="return doclink('link-57', '__init__', 'link-53');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L191"></a><tt class="py-lineno">191</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-58" class="py-name" targets="Variable Jaco.UserPosition.Delay=Jaco.UserPosition-class.html#Delay"><a title="Jaco.UserPosition.Delay" class="py-name" href="#" onclick="return doclink('link-58', 'Delay', 'link-58');">Delay</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+</div></div><a name="L192"></a><tt class="py-lineno">192</tt>  <tt class="py-line"> </tt>
+<a name="L193"></a><tt class="py-lineno">193</tt>  <tt class="py-line"> </tt>
+<a name="TrajectoryPoint"></a><div id="TrajectoryPoint-def"><a name="L194"></a><tt class="py-lineno">194</tt> <a class="py-toggle" href="#" id="TrajectoryPoint-toggle" onclick="return toggle('TrajectoryPoint');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.TrajectoryPoint-class.html">TrajectoryPoint</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TrajectoryPoint-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TrajectoryPoint-expanded"><a name="L195"></a><tt class="py-lineno">195</tt>  <tt class="py-line">    <tt id="link-59" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-59', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L196"></a><tt class="py-lineno">196</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Position'</tt><tt class="py-op">,</tt> <tt id="link-60" class="py-name" targets="Class Jaco.UserPosition=Jaco.UserPosition-class.html"><a title="Jaco.UserPosition" class="py-name" href="#" onclick="return doclink('link-60', 'UserPosition', 'link-60');">UserPosition</a></tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L197"></a><tt class="py-lineno">197</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'LimitationsActive'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L198"></a><tt class="py-lineno">198</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Limitations'</tt><tt class="py-op">,</tt> <tt id="link-61" class="py-name" targets="Class Jaco.Limitation=Jaco.Limitation-class.html"><a title="Jaco.Limitation" class="py-name" href="#" onclick="return doclink('link-61', 'Limitation', 'link-61');">Limitation</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L199"></a><tt class="py-lineno">199</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+<a name="L200"></a><tt class="py-lineno">200</tt>  <tt class="py-line"> </tt>
+<a name="TrajectoryPoint.__init__"></a><div id="TrajectoryPoint.__init__-def"><a name="L201"></a><tt class="py-lineno">201</tt> <a class="py-toggle" href="#" id="TrajectoryPoint.__init__-toggle" onclick="return toggle('TrajectoryPoint.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.TrajectoryPoint-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TrajectoryPoint.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="TrajectoryPoint.__init__-expanded"><a name="L202"></a><tt class="py-lineno">202</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Variable Jaco.TrajectoryPoint.LimitationsActive=Jaco.TrajectoryPoint-class.html#LimitationsActive"><a title="Jaco.TrajectoryPoint.LimitationsActive" class="py-name" href="#" onclick="return doclink('link-62', 'LimitationsActive', 'link-62');">LimitationsActive</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L203"></a><tt class="py-lineno">203</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name" targets="Variable Jaco.TrajectoryPoint.Position=Jaco.TrajectoryPoint-class.html#Position"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-63', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="Jaco.AngularInfo.__init__
+Jaco.CartesianInfo.__init__
+Jaco.FingerPosition.__init__
+Jaco.Jaco.__init__
+Jaco.Limitation.__init__
+Jaco.POSITION_TYPE.__init__
+Jaco.TrajectoryPoint.__init__
+Jaco.UserPosition.__init__
+gui.model.__init__
+routeplanner.Coordinate.__init__
+sockets.TCPsocket.__init__" class="py-name" href="#" onclick="return doclink('link-64', '__init__', 'link-53');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L204"></a><tt class="py-lineno">204</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name" targets="Variable Jaco.TrajectoryPoint.Limitations=Jaco.TrajectoryPoint-class.html#Limitations"><a title="Jaco.TrajectoryPoint.Limitations" class="py-name" href="#" onclick="return doclink('link-65', 'Limitations', 'link-65');">Limitations</a></tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="Jaco.AngularInfo.__init__
+Jaco.CartesianInfo.__init__
+Jaco.FingerPosition.__init__
+Jaco.Jaco.__init__
+Jaco.Limitation.__init__
+Jaco.POSITION_TYPE.__init__
+Jaco.TrajectoryPoint.__init__
+Jaco.UserPosition.__init__
+gui.model.__init__
+routeplanner.Coordinate.__init__
+sockets.TCPsocket.__init__" class="py-name" href="#" onclick="return doclink('link-66', '__init__', 'link-53');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L205"></a><tt class="py-lineno">205</tt>  <tt class="py-line"> </tt>
+<a name="L206"></a><tt class="py-lineno">206</tt>  <tt class="py-line"> </tt>
+<a name="TrajectoryFIFO"></a><div id="TrajectoryFIFO-def"><a name="L207"></a><tt class="py-lineno">207</tt> <a class="py-toggle" href="#" id="TrajectoryFIFO-toggle" onclick="return toggle('TrajectoryFIFO');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.TrajectoryFIFO-class.html">TrajectoryFIFO</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="TrajectoryFIFO-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="TrajectoryFIFO-expanded"><a name="L208"></a><tt class="py-lineno">208</tt>  <tt class="py-line">    <tt id="link-67" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-67', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L209"></a><tt class="py-lineno">209</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'TrajectoryCount'</tt><tt class="py-op">,</tt> <tt class="py-name">c_uint</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'UsedPercentage'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxSize'</tt><tt class="py-op">,</tt> <tt class="py-name">c_uint</tt><tt class="py-op">)</tt> </tt>
+<a name="L212"></a><tt class="py-lineno">212</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L213"></a><tt class="py-lineno">213</tt>  <tt class="py-line"> </tt>
+<a name="L214"></a><tt class="py-lineno">214</tt>  <tt class="py-line"> </tt>
+<a name="SingularityVector"></a><div id="SingularityVector-def"><a name="L215"></a><tt class="py-lineno">215</tt> <a class="py-toggle" href="#" id="SingularityVector-toggle" onclick="return toggle('SingularityVector');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.SingularityVector-class.html">SingularityVector</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="SingularityVector-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="SingularityVector-expanded"><a name="L216"></a><tt class="py-lineno">216</tt>  <tt class="py-line">    <tt id="link-68" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-68', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L217"></a><tt class="py-lineno">217</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'TranslationSingularityCount'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L218"></a><tt class="py-lineno">218</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'OrientationSingularityCount'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L219"></a><tt class="py-lineno">219</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'TranslationSingularityDistance'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L220"></a><tt class="py-lineno">220</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'OrientationSingularityDistance'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L221"></a><tt class="py-lineno">221</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'RepulsionVector'</tt><tt class="py-op">,</tt> <tt id="link-69" class="py-name"><a title="Jaco.CartesianInfo" class="py-name" href="#" onclick="return doclink('link-69', 'CartesianInfo', 'link-41');">CartesianInfo</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L222"></a><tt class="py-lineno">222</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L223"></a><tt class="py-lineno">223</tt>  <tt class="py-line"> </tt>
+<a name="L224"></a><tt class="py-lineno">224</tt>  <tt class="py-line"> </tt>
+<a name="JoystickCommand"></a><div id="JoystickCommand-def"><a name="L225"></a><tt class="py-lineno">225</tt> <a class="py-toggle" href="#" id="JoystickCommand-toggle" onclick="return toggle('JoystickCommand');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.JoystickCommand-class.html">JoystickCommand</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="JoystickCommand-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="JoystickCommand-expanded"><a name="L226"></a><tt class="py-lineno">226</tt>  <tt class="py-line">    <tt id="link-70" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-70', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L227"></a><tt class="py-lineno">227</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ButtonValue'</tt><tt class="py-op">,</tt> <tt class="py-name">c_int</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L228"></a><tt class="py-lineno">228</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'InclineLeftRight'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L229"></a><tt class="py-lineno">229</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'InclineForwardBackward'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L230"></a><tt class="py-lineno">230</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Rotate'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L231"></a><tt class="py-lineno">231</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MoveLeftRight'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L232"></a><tt class="py-lineno">232</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MoveForwardBackward'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L233"></a><tt class="py-lineno">233</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'PushPull'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L234"></a><tt class="py-lineno">234</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L235"></a><tt class="py-lineno">235</tt>  <tt class="py-line"> </tt>
+<a name="L236"></a><tt class="py-lineno">236</tt>  <tt class="py-line"> </tt>
+<a name="ClientConfigurations"></a><div id="ClientConfigurations-def"><a name="L237"></a><tt class="py-lineno">237</tt> <a class="py-toggle" href="#" id="ClientConfigurations-toggle" onclick="return toggle('ClientConfigurations');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.ClientConfigurations-class.html">ClientConfigurations</a><tt class="py-op">(</tt><tt class="py-base-class">Structure</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="ClientConfigurations-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="ClientConfigurations-expanded"><a name="L238"></a><tt class="py-lineno">238</tt>  <tt class="py-line">    <tt id="link-71" class="py-name"><a title="Jaco.ARMLATERALITY._fields_
+Jaco.AngularInfo._fields_
+Jaco.AngularPosition._fields_
+Jaco.CartesianInfo._fields_
+Jaco.CartesianPosition._fields_
+Jaco.ClientConfigurations._fields_
+Jaco.FingerPosition._fields_
+Jaco.HAND_MODE._fields_
+Jaco.JoystickCommand._fields_
+Jaco.Limitation._fields_
+Jaco.POSITION_TYPE._fields_
+Jaco.SensorsInfo._fields_
+Jaco.SingularityVector._fields_
+Jaco.TrajectoryFIFO._fields_
+Jaco.TrajectoryPoint._fields_
+Jaco.UserPosition._fields_" class="py-name" href="#" onclick="return doclink('link-71', '_fields_', 'link-1');">_fields_</a></tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt> </tt>
+<a name="L239"></a><tt class="py-lineno">239</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ClientID'</tt><tt class="py-op">,</tt> <tt class="py-name">c_char</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L240"></a><tt class="py-lineno">240</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'ClientName'</tt><tt class="py-op">,</tt> <tt class="py-name">c_char</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L241"></a><tt class="py-lineno">241</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Organization'</tt><tt class="py-op">,</tt> <tt class="py-name">c_char</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L242"></a><tt class="py-lineno">242</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Serial'</tt><tt class="py-op">,</tt> <tt class="py-name">c_char</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L243"></a><tt class="py-lineno">243</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Model'</tt><tt class="py-op">,</tt> <tt class="py-name">c_char</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L244"></a><tt class="py-lineno">244</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxLinearSpeed'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L245"></a><tt class="py-lineno">245</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxAngularSpeed'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L246"></a><tt class="py-lineno">246</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxLinearAcceleration'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L247"></a><tt class="py-lineno">247</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxAngularAcceleration'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L248"></a><tt class="py-lineno">248</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'MaxForce'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L249"></a><tt class="py-lineno">249</tt>  <tt class="py-line">        <tt class="py-op">(</tt><tt class="py-string">'Sensibility'</tt><tt class="py-op">,</tt> <tt class="py-name">c_float</tt><tt class="py-op">)</tt> </tt>
+<a name="L250"></a><tt class="py-lineno">250</tt>  <tt class="py-line">    <tt class="py-op">]</tt> </tt>
+</div><a name="L251"></a><tt class="py-lineno">251</tt>  <tt class="py-line"> </tt>
+<a name="L252"></a><tt class="py-lineno">252</tt>  <tt class="py-line"> </tt>
+<a name="Jaco"></a><div id="Jaco-def"><a name="L253"></a><tt class="py-lineno">253</tt> <a class="py-toggle" href="#" id="Jaco-toggle" onclick="return toggle('Jaco');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="Jaco.Jaco-class.html">Jaco</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Jaco-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="Jaco-expanded"><a name="L254"></a><tt class="py-lineno">254</tt>  <tt class="py-line"> </tt>
+<a name="Jaco.__init__"></a><div id="Jaco.__init__-def"><a name="L255"></a><tt class="py-lineno">255</tt> <a class="py-toggle" href="#" id="Jaco.__init__-toggle" onclick="return toggle('Jaco.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.Jaco-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Jaco.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Jaco.__init__-expanded"><a name="L256"></a><tt class="py-lineno">256</tt>  <tt class="py-line">        <tt class="py-docstring">'''Opens the .so-files and activates all the necessary initations'''</tt> </tt>
+<a name="L257"></a><tt class="py-lineno">257</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">com</tt> <tt class="py-op">=</tt> <tt class="py-name">CDLL</tt><tt class="py-op">(</tt><tt class="py-string">"./Kinova.API.CommLayerUbuntu.so"</tt><tt class="py-op">)</tt> </tt>
+<a name="L258"></a><tt class="py-lineno">258</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt> <tt class="py-op">=</tt> <tt class="py-name">CDLL</tt><tt class="py-op">(</tt><tt class="py-string">"./Kinova.API.USBCommandLayerUbuntu.so"</tt><tt class="py-op">)</tt> </tt>
+<a name="L259"></a><tt class="py-lineno">259</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"InitAPI():"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">InitAPI</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L260"></a><tt class="py-lineno">260</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"StartControlApi():"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">StartControlAPI</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L261"></a><tt class="py-lineno">261</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"SetCartesianControl():"</tt><tt class="py-op">,</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">SetCartesianControl</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L262"></a><tt class="py-lineno">262</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt> <tt class="py-op">=</tt> <tt id="link-72" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-72', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L263"></a><tt class="py-lineno">263</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">angpos</tt> <tt class="py-op">=</tt> <tt id="link-73" class="py-name" targets="Class Jaco.AngularPosition=Jaco.AngularPosition-class.html"><a title="Jaco.AngularPosition" class="py-name" href="#" onclick="return doclink('link-73', 'AngularPosition', 'link-73');">AngularPosition</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L264"></a><tt class="py-lineno">264</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt> <tt class="py-op">=</tt> <tt id="link-74" class="py-name" targets="Class Jaco.TrajectoryPoint=Jaco.TrajectoryPoint-class.html"><a title="Jaco.TrajectoryPoint" class="py-name" href="#" onclick="return doclink('link-74', 'TrajectoryPoint', 'link-74');">TrajectoryPoint</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L265"></a><tt class="py-lineno">265</tt>  <tt class="py-line"> </tt>
+<a name="Jaco.getCarPosition"></a><div id="Jaco.getCarPosition-def"><a name="L266"></a><tt class="py-lineno">266</tt> <a class="py-toggle" href="#" id="Jaco.getCarPosition-toggle" onclick="return toggle('Jaco.getCarPosition');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.Jaco-class.html#getCarPosition">getCarPosition</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Jaco.getCarPosition-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Jaco.getCarPosition-expanded"><a name="L267"></a><tt class="py-lineno">267</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L268"></a><tt class="py-lineno">268</tt>  <tt class="py-line"><tt class="py-docstring">        In this function API gets the CarPosition information from the robot</tt> </tt>
+<a name="L269"></a><tt class="py-lineno">269</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L270"></a><tt class="py-lineno">270</tt>  <tt class="py-line"> </tt>
+<a name="L271"></a><tt class="py-lineno">271</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"In getCarPosition"</tt> </tt>
+<a name="L272"></a><tt class="py-lineno">272</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">GetCartesianPosition</tt><tt class="py-op">.</tt><tt class="py-name">argtypes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">POINTER</tt><tt class="py-op">(</tt><tt id="link-75" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-75', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L273"></a><tt class="py-lineno">273</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">GetCartesianPosition</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">)</tt> </tt>
+<a name="L274"></a><tt class="py-lineno">274</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Coordinates"</tt> </tt>
+<a name="L275"></a><tt class="py-lineno">275</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-76" class="py-name" targets="Variable Jaco.CartesianPosition.Coordinates=Jaco.CartesianPosition-class.html#Coordinates"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-76', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="Jaco.CartesianInfo.X" class="py-name" href="#" onclick="return doclink('link-77', 'X', 'link-23');">X</a></tt> </tt>
+<a name="L276"></a><tt class="py-lineno">276</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-78" class="py-name"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-78', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="Jaco.CartesianInfo.Y" class="py-name" href="#" onclick="return doclink('link-79', 'Y', 'link-24');">Y</a></tt> </tt>
+<a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-80', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="Jaco.CartesianInfo.Z" class="py-name" href="#" onclick="return doclink('link-81', 'Z', 'link-25');">Z</a></tt> </tt>
+<a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"Theta"</tt> </tt>
+<a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-82', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="Jaco.CartesianInfo.ThetaX" class="py-name" href="#" onclick="return doclink('link-83', 'ThetaX', 'link-26');">ThetaX</a></tt> </tt>
+<a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-84', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="Jaco.CartesianInfo.ThetaY" class="py-name" href="#" onclick="return doclink('link-85', 'ThetaY', 'link-27');">ThetaY</a></tt> </tt>
+<a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">position</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="Jaco.CartesianPosition.Coordinates" class="py-name" href="#" onclick="return doclink('link-86', 'Coordinates', 'link-76');">Coordinates</a></tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="Jaco.CartesianInfo.ThetaZ" class="py-name" href="#" onclick="return doclink('link-87', 'ThetaZ', 'link-28');">ThetaZ</a></tt> </tt>
+</div><a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line"> </tt>
+<a name="Jaco.getAngPosition"></a><div id="Jaco.getAngPosition-def"><a name="L283"></a><tt class="py-lineno">283</tt> <a class="py-toggle" href="#" id="Jaco.getAngPosition-toggle" onclick="return toggle('Jaco.getAngPosition');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.Jaco-class.html#getAngPosition">getAngPosition</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Jaco.getAngPosition-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Jaco.getAngPosition-expanded"><a name="L284"></a><tt class="py-lineno">284</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L285"></a><tt class="py-lineno">285</tt>  <tt class="py-line"><tt class="py-docstring">        API gets the AngularPosition information from the robot</tt> </tt>
+<a name="L286"></a><tt class="py-lineno">286</tt>  <tt class="py-line"><tt class="py-docstring">        and specifies the command to pointer</tt> </tt>
+<a name="L287"></a><tt class="py-lineno">287</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L288"></a><tt class="py-lineno">288</tt>  <tt class="py-line"> </tt>
+<a name="L289"></a><tt class="py-lineno">289</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"In getAngPosition"</tt> </tt>
+<a name="L290"></a><tt class="py-lineno">290</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">GetAngularPosition</tt><tt class="py-op">.</tt><tt class="py-name">argtypes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">POINTER</tt><tt class="py-op">(</tt><tt id="link-88" class="py-name"><a title="Jaco.AngularPosition" class="py-name" href="#" onclick="return doclink('link-88', 'AngularPosition', 'link-73');">AngularPosition</a></tt><tt class="py-op">)</tt><tt class="py-op">]</tt> </tt>
+<a name="L291"></a><tt class="py-lineno">291</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">GetAngularPosition</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">angpos</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L292"></a><tt class="py-lineno">292</tt>  <tt class="py-line"> </tt>
+<a name="Jaco.sendPosition"></a><div id="Jaco.sendPosition-def"><a name="L293"></a><tt class="py-lineno">293</tt> <a class="py-toggle" href="#" id="Jaco.sendPosition-toggle" onclick="return toggle('Jaco.sendPosition');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="Jaco.Jaco-class.html#sendPosition">sendPosition</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">x</tt><tt class="py-op">,</tt> <tt class="py-param">y</tt><tt class="py-op">,</tt> <tt class="py-param">z</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Jaco.sendPosition-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Jaco.sendPosition-expanded"><a name="L294"></a><tt class="py-lineno">294</tt>  <tt class="py-line">        <tt class="py-docstring">'''</tt> </tt>
+<a name="L295"></a><tt class="py-lineno">295</tt>  <tt class="py-line"><tt class="py-docstring">        API specifies the command to pointer and sets</tt> </tt>
+<a name="L296"></a><tt class="py-lineno">296</tt>  <tt class="py-line"><tt class="py-docstring">        all the speedparameters and also the thetas for the hand.</tt> </tt>
+<a name="L297"></a><tt class="py-lineno">297</tt>  <tt class="py-line"><tt class="py-docstring">        '''</tt> </tt>
+<a name="L298"></a><tt class="py-lineno">298</tt>  <tt class="py-line"> </tt>
+<a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"In SendPosition"</tt> </tt>
+<a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">SendAdvanceTrajectory</tt><tt class="py-op">.</tt><tt class="py-name">argtypes</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt id="link-89" class="py-name"><a title="Jaco.TrajectoryPoint" class="py-name" href="#" onclick="return doclink('link-89', 'TrajectoryPoint', 'link-74');">TrajectoryPoint</a></tt><tt class="py-op">]</tt> </tt>
+<a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line"> </tt>
+<a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name"><a title="Jaco.TrajectoryPoint.Limitations" class="py-name" href="#" onclick="return doclink('link-90', 'Limitations', 'link-65');">Limitations</a></tt><tt class="py-op">.</tt><tt id="link-91" class="py-name"><a title="Jaco.Limitation.speedParameter1" class="py-name" href="#" onclick="return doclink('link-91', 'speedParameter1', 'link-12');">speedParameter1</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.08</tt> </tt>
+<a name="L303"></a><tt class="py-lineno">303</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="Jaco.TrajectoryPoint.Limitations" class="py-name" href="#" onclick="return doclink('link-92', 'Limitations', 'link-65');">Limitations</a></tt><tt class="py-op">.</tt><tt id="link-93" class="py-name"><a title="Jaco.Limitation.speedParameter2" class="py-name" href="#" onclick="return doclink('link-93', 'speedParameter2', 'link-13');">speedParameter2</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.6</tt> </tt>
+<a name="L304"></a><tt class="py-lineno">304</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-94" class="py-name"><a title="Jaco.TrajectoryPoint.Limitations" class="py-name" href="#" onclick="return doclink('link-94', 'Limitations', 'link-65');">Limitations</a></tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="Jaco.Limitation.speedParameter3" class="py-name" href="#" onclick="return doclink('link-95', 'speedParameter3', 'link-14');">speedParameter3</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.08</tt> </tt>
+<a name="L305"></a><tt class="py-lineno">305</tt>  <tt class="py-line"> </tt>
+<a name="L306"></a><tt class="py-lineno">306</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-96', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-97', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="Jaco.CartesianInfo.X" class="py-name" href="#" onclick="return doclink('link-98', 'X', 'link-23');">X</a></tt> <tt class="py-op">=</tt> <tt id="link-99" class="py-name" targets="Variable routeplanner.Coordinate.x=routeplanner.Coordinate-class.html#x"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-99', 'x', 'link-99');">x</a></tt> </tt>
+<a name="L307"></a><tt class="py-lineno">307</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-100', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-101" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-101', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="Jaco.CartesianInfo.Y" class="py-name" href="#" onclick="return doclink('link-102', 'Y', 'link-24');">Y</a></tt> <tt class="py-op">=</tt> <tt id="link-103" class="py-name" targets="Variable routeplanner.Coordinate.y=routeplanner.Coordinate-class.html#y"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-103', 'y', 'link-103');">y</a></tt> </tt>
+<a name="L308"></a><tt class="py-lineno">308</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-104" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-104', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-105" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-105', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-106" class="py-name"><a title="Jaco.CartesianInfo.Z" class="py-name" href="#" onclick="return doclink('link-106', 'Z', 'link-25');">Z</a></tt> <tt class="py-op">=</tt> <tt id="link-107" class="py-name" targets="Variable routeplanner.Coordinate.z=routeplanner.Coordinate-class.html#z"><a title="routeplanner.Coordinate.z" class="py-name" href="#" onclick="return doclink('link-107', 'z', 'link-107');">z</a></tt> </tt>
+<a name="L309"></a><tt class="py-lineno">309</tt>  <tt class="py-line"> </tt>
+<a name="L310"></a><tt class="py-lineno">310</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-108" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-108', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-109" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-109', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-110" class="py-name"><a title="Jaco.CartesianInfo.ThetaX" class="py-name" href="#" onclick="return doclink('link-110', 'ThetaX', 'link-26');">ThetaX</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.53015184402</tt> </tt>
+<a name="L311"></a><tt class="py-lineno">311</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-111', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-112" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-112', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-113" class="py-name"><a title="Jaco.CartesianInfo.ThetaY" class="py-name" href="#" onclick="return doclink('link-113', 'ThetaY', 'link-27');">ThetaY</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.04940390587</tt> </tt>
+<a name="L312"></a><tt class="py-lineno">312</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-114" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-114', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-115" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-115', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-116" class="py-name"><a title="Jaco.CartesianInfo.ThetaZ" class="py-name" href="#" onclick="return doclink('link-116', 'ThetaZ', 'link-28');">ThetaZ</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0.0722067132592</tt> </tt>
+<a name="L313"></a><tt class="py-lineno">313</tt>  <tt class="py-line"> </tt>
+<a name="L314"></a><tt class="py-lineno">314</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-117" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-117', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-118" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-118', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-119" class="py-name"><a title="Jaco.CartesianInfo.X" class="py-name" href="#" onclick="return doclink('link-119', 'X', 'link-23');">X</a></tt> </tt>
+<a name="L315"></a><tt class="py-lineno">315</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-120" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-120', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-121" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-121', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-122" class="py-name"><a title="Jaco.CartesianInfo.Y" class="py-name" href="#" onclick="return doclink('link-122', 'Y', 'link-24');">Y</a></tt> </tt>
+<a name="L316"></a><tt class="py-lineno">316</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-123" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-123', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-124" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-124', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-125" class="py-name"><a title="Jaco.CartesianInfo.Z" class="py-name" href="#" onclick="return doclink('link-125', 'Z', 'link-25');">Z</a></tt> </tt>
+<a name="L317"></a><tt class="py-lineno">317</tt>  <tt class="py-line"> </tt>
+<a name="L318"></a><tt class="py-lineno">318</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-126" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-126', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-127" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-127', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-128" class="py-name"><a title="Jaco.CartesianInfo.ThetaX" class="py-name" href="#" onclick="return doclink('link-128', 'ThetaX', 'link-26');">ThetaX</a></tt> </tt>
+<a name="L319"></a><tt class="py-lineno">319</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-129" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-129', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-130" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-130', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-131" class="py-name"><a title="Jaco.CartesianInfo.ThetaY" class="py-name" href="#" onclick="return doclink('link-131', 'ThetaY', 'link-27');">ThetaY</a></tt> </tt>
+<a name="L320"></a><tt class="py-lineno">320</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-132" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-132', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-133" class="py-name"><a title="Jaco.CartesianPosition
+Jaco.UserPosition.CartesianPosition" class="py-name" href="#" onclick="return doclink('link-133', 'CartesianPosition', 'link-52');">CartesianPosition</a></tt><tt class="py-op">.</tt><tt id="link-134" class="py-name"><a title="Jaco.CartesianInfo.ThetaZ" class="py-name" href="#" onclick="return doclink('link-134', 'ThetaZ', 'link-28');">ThetaZ</a></tt> </tt>
+<a name="L321"></a><tt class="py-lineno">321</tt>  <tt class="py-line"> </tt>
+<a name="L322"></a><tt class="py-lineno">322</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-135" class="py-name"><a title="Jaco.TrajectoryPoint.LimitationsActive" class="py-name" href="#" onclick="return doclink('link-135', 'LimitationsActive', 'link-62');">LimitationsActive</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L323"></a><tt class="py-lineno">323</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-136" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-136', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-137" class="py-name"><a title="Jaco.UserPosition.Type" class="py-name" href="#" onclick="return doclink('link-137', 'Type', 'link-50');">Type</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L324"></a><tt class="py-lineno">324</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">.</tt><tt id="link-138" class="py-name"><a title="Jaco.TrajectoryPoint.Position" class="py-name" href="#" onclick="return doclink('link-138', 'Position', 'link-63');">Position</a></tt><tt class="py-op">.</tt><tt id="link-139" class="py-name"><a title="Jaco.UserPosition.HandMode" class="py-name" href="#" onclick="return doclink('link-139', 'HandMode', 'link-51');">HandMode</a></tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L325"></a><tt class="py-lineno">325</tt>  <tt class="py-line"> </tt>
+<a name="L326"></a><tt class="py-lineno">326</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-string">"SendBasicTrajectory():"</tt><tt class="py-op">,</tt> </tt>
+<a name="L327"></a><tt class="py-lineno">327</tt>  <tt class="py-line">        <tt class="py-keyword">print</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">SendAdvanceTrajectory</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">sendtrajectory</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L328"></a><tt class="py-lineno">328</tt>  <tt class="py-line"> </tt>
+<a name="L329"></a><tt class="py-lineno">329</tt>  <tt class="py-line"> </tt>
+<a name="L330"></a><tt class="py-lineno">330</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">"__main__"</tt><tt class="py-op">:</tt> </tt>
+<a name="L331"></a><tt class="py-lineno">331</tt>  <tt class="py-line">    <tt class="py-string">'''</tt> </tt>
+<a name="L332"></a><tt class="py-lineno">332</tt>  <tt class="py-line"><tt class="py-string">    Calls the class Jaco and determines sockets for GUI and API.</tt> </tt>
+<a name="L333"></a><tt class="py-lineno">333</tt>  <tt class="py-line"><tt class="py-string">    Also determines the origin points</tt> </tt>
+<a name="L334"></a><tt class="py-lineno">334</tt>  <tt class="py-line"><tt class="py-string">    '''</tt> </tt>
+<a name="L335"></a><tt class="py-lineno">335</tt>  <tt class="py-line"> </tt>
+<a name="L336"></a><tt class="py-lineno">336</tt>  <tt class="py-line">    <tt class="py-name">j</tt> <tt class="py-op">=</tt> <tt id="link-140" class="py-name" targets="Module Jaco=Jaco-module.html,Class Jaco.Jaco=Jaco.Jaco-class.html"><a title="Jaco
+Jaco.Jaco" class="py-name" href="#" onclick="return doclink('link-140', 'Jaco', 'link-140');">Jaco</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L337"></a><tt class="py-lineno">337</tt>  <tt class="py-line">    <tt class="py-name">soc_gui</tt> <tt class="py-op">=</tt> <tt id="link-141" class="py-name"><a title="sockets" class="py-name" href="#" onclick="return doclink('link-141', 'sockets', 'link-0');">sockets</a></tt><tt class="py-op">.</tt><tt id="link-142" class="py-name" targets="Class sockets.TCPsocket=sockets.TCPsocket-class.html"><a title="sockets.TCPsocket" class="py-name" href="#" onclick="return doclink('link-142', 'TCPsocket', 'link-142');">TCPsocket</a></tt><tt class="py-op">(</tt><tt class="py-string">"server"</tt><tt class="py-op">,</tt> <tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">50005</tt><tt class="py-op">)</tt> </tt>
+<a name="L338"></a><tt class="py-lineno">338</tt>  <tt class="py-line">    <tt class="py-name">soc_own</tt> <tt class="py-op">=</tt> <tt id="link-143" class="py-name"><a title="sockets" class="py-name" href="#" onclick="return doclink('link-143', 'sockets', 'link-0');">sockets</a></tt><tt class="py-op">.</tt><tt id="link-144" class="py-name"><a title="sockets.TCPsocket" class="py-name" href="#" onclick="return doclink('link-144', 'TCPsocket', 'link-142');">TCPsocket</a></tt><tt class="py-op">(</tt><tt class="py-string">"client"</tt><tt class="py-op">,</tt> <tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">50010</tt><tt class="py-op">)</tt> </tt>
+<a name="L339"></a><tt class="py-lineno">339</tt>  <tt class="py-line">    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-145" class="py-name" targets="Method Jaco.Jaco.getCarPosition()=Jaco.Jaco-class.html#getCarPosition"><a title="Jaco.Jaco.getCarPosition" class="py-name" href="#" onclick="return doclink('link-145', 'getCarPosition', 'link-145');">getCarPosition</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L340"></a><tt class="py-lineno">340</tt>  <tt class="py-line">    <tt class="py-name">originX</tt> <tt class="py-op">=</tt> <tt class="py-number">0.05</tt> </tt>
+<a name="L341"></a><tt class="py-lineno">341</tt>  <tt class="py-line">    <tt class="py-name">originY</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt><tt class="py-number">0.65</tt> </tt>
+<a name="L342"></a><tt class="py-lineno">342</tt>  <tt class="py-line">    <tt class="py-name">originZ</tt> <tt class="py-op">=</tt> <tt class="py-number">0.13</tt> </tt>
+<a name="L343"></a><tt class="py-lineno">343</tt>  <tt class="py-line"> </tt>
+<a name="L344"></a><tt class="py-lineno">344</tt>  <tt class="py-line">    <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L345"></a><tt class="py-lineno">345</tt>  <tt class="py-line"> </tt>
+<a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line">        <tt class="py-keyword">while</tt> <tt class="py-op">(</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt>  <tt class="py-comment"># wait forever</tt> </tt>
+<a name="L347"></a><tt class="py-lineno">347</tt>  <tt class="py-line">            <tt class="py-name">message</tt> <tt class="py-op">=</tt> <tt class="py-name">soc_gui</tt><tt class="py-op">.</tt><tt id="link-146" class="py-name" targets="Method sockets.TCPsocket.getMessage()=sockets.TCPsocket-class.html#getMessage"><a title="sockets.TCPsocket.getMessage" class="py-name" href="#" onclick="return doclink('link-146', 'getMessage', 'link-146');">getMessage</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"1"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L349"></a><tt class="py-lineno">349</tt>  <tt class="py-line">                <tt class="py-keyword">break</tt> </tt>
+<a name="L350"></a><tt class="py-lineno">350</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L351"></a><tt class="py-lineno">351</tt>  <tt class="py-line">                <tt class="py-keyword">pass</tt> </tt>
+<a name="L352"></a><tt class="py-lineno">352</tt>  <tt class="py-line">        <tt class="py-name">soc_own</tt><tt class="py-op">.</tt><tt id="link-147" class="py-name" targets="Method sockets.TCPsocket.sendMessage()=sockets.TCPsocket-class.html#sendMessage"><a title="sockets.TCPsocket.sendMessage" class="py-name" href="#" onclick="return doclink('link-147', 'sendMessage', 'link-147');">sendMessage</a></tt><tt class="py-op">(</tt><tt class="py-string">"ACK"</tt><tt class="py-op">,</tt> <tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">50002</tt><tt class="py-op">)</tt> </tt>
+<a name="L353"></a><tt class="py-lineno">353</tt>  <tt class="py-line"> </tt>
+<a name="L354"></a><tt class="py-lineno">354</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"ROUTE"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L355"></a><tt class="py-lineno">355</tt>  <tt class="py-line">            <tt class="py-string">'''</tt> </tt>
+<a name="L356"></a><tt class="py-lineno">356</tt>  <tt class="py-line"><tt class="py-string">            Gets the message from socket and loads the json-packet.</tt> </tt>
+<a name="L357"></a><tt class="py-lineno">357</tt>  <tt class="py-line"><tt class="py-string">            Sends the hand to origin</tt> </tt>
+<a name="L358"></a><tt class="py-lineno">358</tt>  <tt class="py-line"><tt class="py-string">            '''</tt> </tt>
+<a name="L359"></a><tt class="py-lineno">359</tt>  <tt class="py-line"> </tt>
+<a name="L360"></a><tt class="py-lineno">360</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"ROUTE"</tt> </tt>
+<a name="L361"></a><tt class="py-lineno">361</tt>  <tt class="py-line">            <tt id="link-148" class="py-name" targets="Variable gui.data=gui-module.html#data"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-148', 'data', 'link-148');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L362"></a><tt class="py-lineno">362</tt>  <tt class="py-line">            <tt class="py-comment"># print data</tt> </tt>
+<a name="L363"></a><tt class="py-lineno">363</tt>  <tt class="py-line">            <tt id="link-149" class="py-name"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-149', 'data', 'link-148');">data</a></tt> <tt class="py-op">=</tt> <tt class="py-name">json</tt><tt class="py-op">.</tt><tt class="py-name">loads</tt><tt class="py-op">(</tt><tt id="link-150" class="py-name"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-150', 'data', 'link-148');">data</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L364"></a><tt class="py-lineno">364</tt>  <tt class="py-line">            <tt class="py-comment"># print data</tt> </tt>
+<a name="L365"></a><tt class="py-lineno">365</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-151" class="py-name" targets="Method Jaco.Jaco.sendPosition()=Jaco.Jaco-class.html#sendPosition"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-151', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L366"></a><tt class="py-lineno">366</tt>  <tt class="py-line">                <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt id="link-152" class="py-name"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-152', 'data', 'link-148');">data</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt id="link-153" class="py-name"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-153', 'data', 'link-148');">data</a></tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L367"></a><tt class="py-lineno">367</tt>  <tt class="py-line">            <tt class="py-comment"># j.sendPosition(originX+data[0][0], originY+data[0][1],</tt> </tt>
+<a name="L368"></a><tt class="py-lineno">368</tt>  <tt class="py-line">            <tt class="py-comment"># originZ+data[0][2] + 0.05) #Enable Z coordinates</tt> </tt>
+<a name="L369"></a><tt class="py-lineno">369</tt>  <tt class="py-line"> </tt>
+<a name="L370"></a><tt class="py-lineno">370</tt>  <tt class="py-line">            <tt class="py-name">routeX</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L371"></a><tt class="py-lineno">371</tt>  <tt class="py-line">            <tt class="py-name">routeY</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L372"></a><tt class="py-lineno">372</tt>  <tt class="py-line">            <tt class="py-name">routeZ</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L373"></a><tt class="py-lineno">373</tt>  <tt class="py-line"> </tt>
+<a name="L374"></a><tt class="py-lineno">374</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt class="py-name">xyz</tt> <tt class="py-keyword">in</tt> <tt id="link-154" class="py-name"><a title="gui.data" class="py-name" href="#" onclick="return doclink('link-154', 'data', 'link-148');">data</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L375"></a><tt class="py-lineno">375</tt>  <tt class="py-line">                <tt class="py-string">'''Prints the route from socket'''</tt> </tt>
+<a name="L376"></a><tt class="py-lineno">376</tt>  <tt class="py-line"> </tt>
+<a name="L377"></a><tt class="py-lineno">377</tt>  <tt class="py-line">                <tt class="py-name">routeX</tt> <tt class="py-op">=</tt> <tt class="py-name">xyz</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L378"></a><tt class="py-lineno">378</tt>  <tt class="py-line">                <tt class="py-name">routeY</tt> <tt class="py-op">=</tt> <tt class="py-name">xyz</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L379"></a><tt class="py-lineno">379</tt>  <tt class="py-line">                <tt class="py-name">routeZ</tt> <tt class="py-op">=</tt> <tt class="py-name">xyz</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L380"></a><tt class="py-lineno">380</tt>  <tt class="py-line"> </tt>
+<a name="L381"></a><tt class="py-lineno">381</tt>  <tt class="py-line">                <tt class="py-comment"># try to compensate for tilted Z axis</tt> </tt>
+<a name="L382"></a><tt class="py-lineno">382</tt>  <tt class="py-line">                <tt class="py-comment"># Z changes approx. 0.125 cm per 1 cm of Y movement</tt> </tt>
+<a name="L383"></a><tt class="py-lineno">383</tt>  <tt class="py-line">                <tt class="py-name">fixZ</tt> <tt class="py-op">=</tt> <tt class="py-name">OriginZ</tt> <tt class="py-op">+</tt> <tt class="py-op">(</tt><tt class="py-number">12.5</tt> <tt class="py-op">*</tt> <tt class="py-name">routeY</tt><tt class="py-op">)</tt>  <tt class="py-comment"># or 12.5 m / m</tt> </tt>
+<a name="L384"></a><tt class="py-lineno">384</tt>  <tt class="py-line"> </tt>
+<a name="L385"></a><tt class="py-lineno">385</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"RECV x"</tt><tt class="py-op">,</tt> <tt class="py-name">routeX</tt><tt class="py-op">,</tt> <tt class="py-string">"y"</tt><tt class="py-op">,</tt> <tt class="py-name">routeY</tt><tt class="py-op">,</tt> <tt class="py-string">"z"</tt><tt class="py-op">,</tt> <tt class="py-name">routeZ</tt> </tt>
+<a name="L386"></a><tt class="py-lineno">386</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-155" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-155', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L387"></a><tt class="py-lineno">387</tt>  <tt class="py-line">                    <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">routeX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">routeY</tt><tt class="py-op">,</tt> <tt class="py-name">fixZ</tt> </tt>
+<a name="L388"></a><tt class="py-lineno">388</tt>  <tt class="py-line">                    <tt class="py-op">)</tt> </tt>
+<a name="L389"></a><tt class="py-lineno">389</tt>  <tt class="py-line">                <tt class="py-comment"># j.sendPosition(originX+routeX, originY+routeY,</tt> </tt>
+<a name="L390"></a><tt class="py-lineno">390</tt>  <tt class="py-line">                <tt class="py-comment"># OriginZ+routeZ)  #Enable Z coordinates</tt> </tt>
+<a name="L391"></a><tt class="py-lineno">391</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-156" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-156', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L392"></a><tt class="py-lineno">392</tt>  <tt class="py-line">                    <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">routeX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">routeY</tt><tt class="py-op">,</tt> <tt class="py-name">fixZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt> </tt>
+<a name="L393"></a><tt class="py-lineno">393</tt>  <tt class="py-line">                    <tt class="py-op">)</tt> </tt>
+<a name="L394"></a><tt class="py-lineno">394</tt>  <tt class="py-line">                <tt class="py-comment"># j.sendPosition(originX+routeX, originY+routeY, originZ+routeZ</tt> </tt>
+<a name="L395"></a><tt class="py-lineno">395</tt>  <tt class="py-line">                <tt class="py-comment"># + 0.05)   #Enable Z coordinates</tt> </tt>
+<a name="L396"></a><tt class="py-lineno">396</tt>  <tt class="py-line">                <tt class="py-name">soc_2planer</tt> <tt class="py-op">=</tt> <tt id="link-157" class="py-name"><a title="sockets" class="py-name" href="#" onclick="return doclink('link-157', 'sockets', 'link-0');">sockets</a></tt><tt class="py-op">.</tt><tt id="link-158" class="py-name"><a title="sockets.TCPsocket" class="py-name" href="#" onclick="return doclink('link-158', 'TCPsocket', 'link-142');">TCPsocket</a></tt><tt class="py-op">(</tt><tt class="py-string">"client"</tt><tt class="py-op">,</tt> <tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">50003</tt><tt class="py-op">)</tt> </tt>
+<a name="L397"></a><tt class="py-lineno">397</tt>  <tt class="py-line">                <tt class="py-name">soc_2planer</tt><tt class="py-op">.</tt><tt id="link-159" class="py-name"><a title="sockets.TCPsocket.sendMessage" class="py-name" href="#" onclick="return doclink('link-159', 'sendMessage', 'link-147');">sendMessage</a></tt><tt class="py-op">(</tt><tt class="py-string">"ACK"</tt><tt class="py-op">,</tt> <tt class="py-string">"localhost"</tt><tt class="py-op">,</tt> <tt class="py-number">50003</tt><tt class="py-op">)</tt> </tt>
+<a name="L398"></a><tt class="py-lineno">398</tt>  <tt class="py-line">                <tt class="py-name">soc_2planer</tt><tt class="py-op">.</tt><tt id="link-160" class="py-name" targets="Method sockets.TCPsocket.close()=sockets.TCPsocket-class.html#close"><a title="sockets.TCPsocket.close" class="py-name" href="#" onclick="return doclink('link-160', 'close', 'link-160');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L399"></a><tt class="py-lineno">399</tt>  <tt class="py-line"> </tt>
+<a name="L400"></a><tt class="py-lineno">400</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"GOTOHOME"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L401"></a><tt class="py-lineno">401</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"jaco going home"</tt> </tt>
+<a name="L402"></a><tt class="py-lineno">402</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"MoveHome():"</tt><tt class="py-op">,</tt> <tt class="py-name">j</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">MoveHome</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L403"></a><tt class="py-lineno">403</tt>  <tt class="py-line"> </tt>
+<a name="L404"></a><tt class="py-lineno">404</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"XYZ"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L405"></a><tt class="py-lineno">405</tt>  <tt class="py-line"> </tt>
+<a name="L406"></a><tt class="py-lineno">406</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">originX</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L407"></a><tt class="py-lineno">407</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"X:"</tt><tt class="py-op">,</tt> <tt class="py-name">originX</tt> </tt>
+<a name="L408"></a><tt class="py-lineno">408</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">abs</tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">originX</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0.5</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L409"></a><tt class="py-lineno">409</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"changing jaco X origin from"</tt><tt class="py-op">,</tt> <tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-string">"to"</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt> </tt>
+<a name="L410"></a><tt class="py-lineno">410</tt>  <tt class="py-line">                <tt class="py-name">originX</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L411"></a><tt class="py-lineno">411</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L412"></a><tt class="py-lineno">412</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"too large difference in coordinates,"</tt><tt class="py-op">,</tt> </tt>
+<a name="L413"></a><tt class="py-lineno">413</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"ignoring change in X!"</tt> </tt>
+<a name="L414"></a><tt class="py-lineno">414</tt>  <tt class="py-line"> </tt>
+<a name="L415"></a><tt class="py-lineno">415</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">originY</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L416"></a><tt class="py-lineno">416</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"Y:"</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> </tt>
+<a name="L417"></a><tt class="py-lineno">417</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">abs</tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">originY</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0.5</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L418"></a><tt class="py-lineno">418</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"changing jaco Y origin from"</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-string">"to"</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> </tt>
+<a name="L419"></a><tt class="py-lineno">419</tt>  <tt class="py-line">                <tt class="py-name">originY</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L420"></a><tt class="py-lineno">420</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L421"></a><tt class="py-lineno">421</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"too large difference in coordinates,"</tt><tt class="py-op">,</tt> </tt>
+<a name="L422"></a><tt class="py-lineno">422</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"ignoring change in Y!"</tt> </tt>
+<a name="L423"></a><tt class="py-lineno">423</tt>  <tt class="py-line"> </tt>
+<a name="L424"></a><tt class="py-lineno">424</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-name">originZ</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"Z:"</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> </tt>
+<a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">            <tt class="py-keyword">elif</tt> <tt class="py-op">(</tt><tt class="py-name">abs</tt><tt class="py-op">(</tt><tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> <tt class="py-op">-</tt> <tt class="py-name">originZ</tt><tt class="py-op">)</tt> <tt class="py-op">&lt;=</tt> <tt class="py-number">0.5</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"changing jaco Z origin from"</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt><tt class="py-op">,</tt> <tt class="py-string">"to"</tt><tt class="py-op">,</tt> <tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt> </tt>
+<a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line">                <tt class="py-name">originZ</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">4</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L429"></a><tt class="py-lineno">429</tt>  <tt class="py-line">            <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L430"></a><tt class="py-lineno">430</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"too large difference in coordinates,"</tt><tt class="py-op">,</tt> </tt>
+<a name="L431"></a><tt class="py-lineno">431</tt>  <tt class="py-line">                <tt class="py-keyword">print</tt> <tt class="py-string">"ignoring change in Z!"</tt> </tt>
+<a name="L432"></a><tt class="py-lineno">432</tt>  <tt class="py-line"> </tt>
+<a name="L433"></a><tt class="py-lineno">433</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"DODEMO"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L434"></a><tt class="py-lineno">434</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"Jaco drawing coordinate axes"</tt> </tt>
+<a name="L435"></a><tt class="py-lineno">435</tt>  <tt class="py-line">            <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L436"></a><tt class="py-lineno">436</tt>  <tt class="py-line">            <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L437"></a><tt class="py-lineno">437</tt>  <tt class="py-line"> </tt>
+<a name="L438"></a><tt class="py-lineno">438</tt>  <tt class="py-line">            <tt class="py-comment"># Drawing x &amp; y axis</tt> </tt>
+<a name="L439"></a><tt class="py-lineno">439</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-161" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-161', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">-</tt> <tt class="py-number">0.10</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.25</tt><tt class="py-op">)</tt> </tt>
+<a name="L440"></a><tt class="py-lineno">440</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-162" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-162', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">-</tt> <tt class="py-number">0.06</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.15</tt><tt class="py-op">)</tt> </tt>
+<a name="L441"></a><tt class="py-lineno">441</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-163" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-163', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">-</tt> <tt class="py-number">0.05</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L442"></a><tt class="py-lineno">442</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-164" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-164', 'x', 'link-99');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">15</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L443"></a><tt class="py-lineno">443</tt>  <tt class="py-line">                <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-165" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-165', 'x', 'link-99');">x</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">500.0</tt> </tt>
+<a name="L444"></a><tt class="py-lineno">444</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-166" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-166', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L445"></a><tt class="py-lineno">445</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-167" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-167', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L446"></a><tt class="py-lineno">446</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-168" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-168', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L447"></a><tt class="py-lineno">447</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-169" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-169', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.00</tt><tt class="py-op">)</tt> </tt>
+<a name="L448"></a><tt class="py-lineno">448</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-170" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-170', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L449"></a><tt class="py-lineno">449</tt>  <tt class="py-line">            <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L450"></a><tt class="py-lineno">450</tt>  <tt class="py-line">            <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L451"></a><tt class="py-lineno">451</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-171" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-171', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">-</tt> <tt class="py-number">0.10</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.25</tt><tt class="py-op">)</tt> </tt>
+<a name="L452"></a><tt class="py-lineno">452</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-172" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-172', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">-</tt> <tt class="py-number">0.06</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.15</tt><tt class="py-op">)</tt> </tt>
+<a name="L453"></a><tt class="py-lineno">453</tt>  <tt class="py-line">            <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-173" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-173', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">-</tt> <tt class="py-number">0.05</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L454"></a><tt class="py-lineno">454</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-174" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-174', 'y', 'link-103');">y</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">15</tt><tt class="py-op">,</tt> <tt class="py-number">16</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L455"></a><tt class="py-lineno">455</tt>  <tt class="py-line">                <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-175" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-175', 'y', 'link-103');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">500.0</tt> </tt>
+<a name="L456"></a><tt class="py-lineno">456</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-176" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-176', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L457"></a><tt class="py-lineno">457</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-177" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-177', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L458"></a><tt class="py-lineno">458</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-178" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-178', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L459"></a><tt class="py-lineno">459</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-179" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-179', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.00</tt><tt class="py-op">)</tt> </tt>
+<a name="L460"></a><tt class="py-lineno">460</tt>  <tt class="py-line">                <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-180" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-180', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt><tt class="py-name">originX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L461"></a><tt class="py-lineno">461</tt>  <tt class="py-line"> </tt>
+<a name="L462"></a><tt class="py-lineno">462</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"DODEMO2"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L463"></a><tt class="py-lineno">463</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"jaco drawing a square"</tt> </tt>
+<a name="L464"></a><tt class="py-lineno">464</tt>  <tt class="py-line">            <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L465"></a><tt class="py-lineno">465</tt>  <tt class="py-line">            <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L466"></a><tt class="py-lineno">466</tt>  <tt class="py-line"> </tt>
+<a name="L467"></a><tt class="py-lineno">467</tt>  <tt class="py-line">            <tt class="py-comment"># draw a square x = +- 0.05, y = +-0.05</tt> </tt>
+<a name="L468"></a><tt class="py-lineno">468</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-181" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-181', 'y', 'link-103');">y</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L469"></a><tt class="py-lineno">469</tt>  <tt class="py-line">                <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-182" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-182', 'y', 'link-103');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">20.0</tt> </tt>
+<a name="L470"></a><tt class="py-lineno">470</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-183" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-183', 'x', 'link-99');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-number">11</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L471"></a><tt class="py-lineno">471</tt>  <tt class="py-line">                    <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-184" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-184', 'x', 'link-99');">x</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">100.0</tt> <tt class="py-op">/</tt> <tt class="py-number">2</tt> </tt>
+<a name="L472"></a><tt class="py-lineno">472</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-185" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-185', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L473"></a><tt class="py-lineno">473</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L474"></a><tt class="py-lineno">474</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-186" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-186', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L475"></a><tt class="py-lineno">475</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.00</tt><tt class="py-op">)</tt> </tt>
+<a name="L476"></a><tt class="py-lineno">476</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-187" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-187', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L477"></a><tt class="py-lineno">477</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L478"></a><tt class="py-lineno">478</tt>  <tt class="py-line">            <tt class="py-keyword">for</tt> <tt id="link-188" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-188', 'x', 'link-99');">x</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">,</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L479"></a><tt class="py-lineno">479</tt>  <tt class="py-line">                <tt class="py-name">demoX</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-189" class="py-name"><a title="routeplanner.Coordinate.x" class="py-name" href="#" onclick="return doclink('link-189', 'x', 'link-99');">x</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">20.0</tt> </tt>
+<a name="L480"></a><tt class="py-lineno">480</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt id="link-190" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-190', 'y', 'link-103');">y</a></tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-op">-</tt><tt class="py-number">10</tt><tt class="py-op">,</tt> <tt class="py-number">11</tt><tt class="py-op">,</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L481"></a><tt class="py-lineno">481</tt>  <tt class="py-line">                    <tt class="py-name">demoY</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-191" class="py-name"><a title="routeplanner.Coordinate.y" class="py-name" href="#" onclick="return doclink('link-191', 'y', 'link-103');">y</a></tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-number">100.0</tt> <tt class="py-op">/</tt> <tt class="py-number">2</tt> </tt>
+<a name="L482"></a><tt class="py-lineno">482</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-192" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-192', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L483"></a><tt class="py-lineno">483</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L484"></a><tt class="py-lineno">484</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-193" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-193', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L485"></a><tt class="py-lineno">485</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.00</tt><tt class="py-op">)</tt> </tt>
+<a name="L486"></a><tt class="py-lineno">486</tt>  <tt class="py-line">                    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt id="link-194" class="py-name"><a title="Jaco.Jaco.sendPosition" class="py-name" href="#" onclick="return doclink('link-194', 'sendPosition', 'link-151');">sendPosition</a></tt><tt class="py-op">(</tt> </tt>
+<a name="L487"></a><tt class="py-lineno">487</tt>  <tt class="py-line">                        <tt class="py-name">originX</tt> <tt class="py-op">+</tt> <tt class="py-name">demoX</tt><tt class="py-op">,</tt> <tt class="py-name">originY</tt> <tt class="py-op">+</tt> <tt class="py-name">demoY</tt><tt class="py-op">,</tt> <tt class="py-name">originZ</tt> <tt class="py-op">+</tt> <tt class="py-number">0.05</tt><tt class="py-op">)</tt> </tt>
+<a name="L488"></a><tt class="py-lineno">488</tt>  <tt class="py-line"> </tt>
+<a name="L489"></a><tt class="py-lineno">489</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-op">(</tt><tt class="py-name">message</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">"EXIT"</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L490"></a><tt class="py-lineno">490</tt>  <tt class="py-line">            <tt class="py-keyword">print</tt> <tt class="py-string">"jaco exiting"</tt> </tt>
+<a name="L491"></a><tt class="py-lineno">491</tt>  <tt class="py-line">            <tt class="py-keyword">break</tt> </tt>
+<a name="L492"></a><tt class="py-lineno">492</tt>  <tt class="py-line"> </tt>
+<a name="L493"></a><tt class="py-lineno">493</tt>  <tt class="py-line">    <tt class="py-name">j</tt><tt class="py-op">.</tt><tt class="py-name">jaco</tt><tt class="py-op">.</tt><tt class="py-name">CloseAPI</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L494"></a><tt class="py-lineno">494</tt>  <tt class="py-line">    <tt class="py-name">soc_gui</tt><tt class="py-op">.</tt><tt id="link-195" class="py-name"><a title="sockets.TCPsocket.close" class="py-name" href="#" onclick="return doclink('link-195', 'close', 'link-160');">close</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L495"></a><tt class="py-lineno">495</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Jun 14 22:06:46 2014
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
